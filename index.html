@@ -137,6 +137,100 @@
         </div>
 
     </main>
+    <script>
+    const formatMoney = (amount) => amount.toLocaleString('vi-VN') + 'đ';
+
+    function triggerPop(el) {
+        if (!el) return;
+        el.classList.remove('price-pop');
+        void el.offsetWidth; // Reset animation
+        el.classList.add('price-pop');
+    }
+
+    function recalculateCart() {
+        const shopItems = document.querySelectorAll('.shop-group .cart-item');
+        let subtotal = 0;
+        let totalCount = 0;
+
+        shopItems.forEach(item => {
+            const checkbox = item.querySelector('input[type="checkbox"]');
+            const priceText = item.querySelector('.current-price').textContent.replace(/[^\d]/g, '');
+            const qty = parseInt(item.querySelector('.item-quantity input').value, 10);
+            const unitPrice = parseInt(priceText, 10);
+
+            if (checkbox.checked) {
+                subtotal += unitPrice * qty;
+                totalCount += qty;
+                item.style.opacity = '1';
+            } else {
+                item.style.opacity = '0.55';
+            }
+        });
+
+        const shipping = totalCount > 0 ? 30000 : 0;
+        const discount = totalCount > 0 ? 50000 : 0; // 30k Freeship + 20k Xu
+        const finalTotal = Math.max(0, subtotal + shipping - discount);
+
+        // Cập nhật các dòng trong Tóm tắt đơn hàng
+        const summaryRows = document.querySelectorAll('.summary-card .summary-row');
+        if (summaryRows[0]) summaryRows[0].querySelector('span:last-child').textContent = formatMoney(subtotal);
+        if (summaryRows[1]) summaryRows[1].querySelector('span:last-child').textContent = formatMoney(shipping);
+
+        const finalPriceEl = document.querySelector('.final-price');
+        finalPriceEl.textContent = formatMoney(finalTotal);
+        triggerPop(finalPriceEl);
+
+        const checkoutBtn = document.querySelector('.btn-checkout');
+        checkoutBtn.textContent = `MUA HÀNG (${totalCount} SẢN PHẨM)`;
+    }
+
+    // Gắn sự kiện nút + / -
+    document.querySelectorAll('.shop-group .item-quantity').forEach(qtyBox => {
+        const minusBtn = qtyBox.querySelector('button:first-child');
+        const plusBtn = qtyBox.querySelector('button:last-child');
+        const input = qtyBox.querySelector('input');
+
+        minusBtn.addEventListener('click', () => {
+            let val = parseInt(input.value, 10);
+            if (val > 1) {
+                input.value = val - 1;
+                recalculateCart();
+            }
+        });
+
+        plusBtn.addEventListener('click', () => {
+            let val = parseInt(input.value, 10);
+            input.value = val + 1;
+            recalculateCart();
+        });
+    });
+
+    // Đồng bộ checkbox Shop và từng sản phẩm
+    const shopCheckbox = document.querySelector('.shop-header input[type="checkbox"]');
+    const itemCheckboxes = document.querySelectorAll('.shop-group .cart-item input[type="checkbox"]');
+
+    shopCheckbox.addEventListener('change', (e) => {
+        itemCheckboxes.forEach(cb => cb.checked = e.target.checked);
+        recalculateCart();
+    });
+
+    itemCheckboxes.forEach(cb => {
+        cb.addEventListener('change', () => {
+            shopCheckbox.checked = Array.from(itemCheckboxes).every(c => c.checked);
+            recalculateCart();
+        });
+    });
+
+    // Hiệu ứng xóa mượt khu vực hết hàng
+    const clearOosBtn = document.querySelector('.btn-clear-oos');
+    const oosSection = document.querySelector('.out-of-stock-section');
+    if (clearOosBtn && oosSection) {
+        clearOosBtn.addEventListener('click', () => {
+            oosSection.classList.add('removing');
+            setTimeout(() => oosSection.remove(), 300);
+        });
+    }
+</script>
 
 </body>
 </html>
