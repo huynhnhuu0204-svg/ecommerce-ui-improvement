@@ -3,140 +3,271 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cải tiến Giỏ hàng - Shopee Mockup</title>
-    <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
-    <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
-    <link href="[https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap](https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap)" rel="stylesheet">
+    <title>Giỏ Hàng Của Tôi - Shopee UI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Header trang giỏ hàng -->
+    <!-- Header tinh gọn -->
     <header class="cart-header">
         <div class="container header-inner">
-            <div class="header-title-group">
-                <h1>🛒 Giỏ Hàng Của Tôi</h1>
-                <span class="header-subtitle">Cải tiến giao diện Tóm tắt</span>
+            <div class="brand-area">
+                <span class="brand-icon">🛍️</span>
+                <h1>Giỏ Hàng <span class="cart-count-badge" id="header-count">(2)</span></h1>
             </div>
-            <span class="header-promo-tag">✨ Miễn phí vận chuyển cho đơn từ 300.000đ</span>
+            <div class="freeship-banner">
+                <span class="freeship-tag">FREESHIP</span>
+                <span>Miễn phí vận chuyển cho đơn từ <strong>300.000đ</strong></span>
+            </div>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="cart-container container">
+    <!-- Main Layout -->
+    <main class="container cart-layout">
         
-        <!-- Cột bên trái: Danh sách sản phẩm và cảnh báo hàng hết -->
-        <div class="cart-main-content">
+        <!-- CỘT TRÁI: DANH SÁCH SẢN PHẨM -->
+        <section class="cart-left">
             
-            <!-- Nhóm Shop 1 -->
-            <div class="shop-group">
+            <!-- Thanh chọn tất cả -->
+            <div class="select-all-bar">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="check-all" checked>
+                    <span>Chọn tất cả (2 sản phẩm)</span>
+                </label>
+                <span class="edit-note">Giao hàng tiêu chuẩn</span>
+            </div>
+
+            <!-- Nhóm Shop -->
+            <div class="shop-card">
                 <div class="shop-header">
-                    <input type="checkbox" checked>
-                    <span class="shop-name">Official Store VN</span>
-                    <span class="shop-badge">MALL</span>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="check-shop" checked>
+                        <span class="mall-tag">Mall</span>
+                        <span class="shop-name">Official Store VN</span>
+                    </label>
+                    <span class="shop-voucher-hint">🎟️ Đã áp mã Freeship</span>
                 </div>
-                
+
                 <!-- Sản phẩm 1 -->
-                <div class="cart-item">
-                    <input type="checkbox" checked>
-                    <img src="images/ao-khoac.jpg" alt="Áo khoác gió thể thao" class="item-img">
-                    <div class="item-info">
-                        <p class="item-title">Áo khoác gió thể thao nam cao cấp chống nước kháng bụi</p>
-                        <span class="item-classification">Phân loại: Đen, Size L</span>
+                <div class="product-row" data-price="250000" data-old-price="350000">
+                    <div class="row-check">
+                        <input type="checkbox" class="item-check" checked>
                     </div>
-                    <div class="item-price">
-                        <span class="old-price">350.000đ</span>
-                        <span class="current-price">250.000đ</span>
-                    </div>
-                    <div class="item-quantity">
-                        <button type="button">−</button>
-                        <input type="text" value="1" readonly>
-                        <button type="button">+</button>
+                    <img src="images/ao-khoac.jpg" alt="Áo khoác gió thể thao" class="product-thumb">
+                    <div class="product-body">
+                        <div class="product-top">
+                            <h2 class="product-name">Áo khoác gió thể thao nam cao cấp chống nước kháng bụi</h2>
+                            <span class="variant-pill">Phân loại: Đen, Size L ▾</span>
+                        </div>
+                        <div class="product-bottom">
+                            <div class="price-group">
+                                <span class="price-now">250.000đ</span>
+                                <span class="price-old">350.000đ</span>
+                            </div>
+                            <div class="qty-stepper">
+                                <button type="button" class="btn-qty minus" aria-label="Giảm">−</button>
+                                <input type="text" class="qty-input" value="1" readonly>
+                                <button type="button" class="btn-qty plus" aria-label="Tăng">+</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Sản phẩm 2 -->
-                <div class="cart-item">
-                    <input type="checkbox" checked>
-                    <img src="images/giay-sneaker.jpg" alt="Giày Sneaker" class="item-img">
-                    <div class="item-info">
-                        <p class="item-title">Giày Sneaker nam nữ năng động thời trang hot trend</p>
-                        <span class="item-classification">Phân loại: Trắng Xám, Size 41</span>
+                <div class="product-row" data-price="450000" data-old-price="600000">
+                    <div class="row-check">
+                        <input type="checkbox" class="item-check" checked>
                     </div>
-                    <div class="item-price">
-                        <span class="old-price">600.000đ</span>
-                        <span class="current-price">450.000đ</span>
-                    </div>
-                    <div class="item-quantity">
-                        <button type="button">−</button>
-                        <input type="text" value="1" readonly>
-                        <button type="button">+</button>
+                    <img src="images/giay-sneaker.jpg" alt="Giày Sneaker" class="product-thumb">
+                    <div class="product-body">
+                        <div class="product-top">
+                            <h2 class="product-name">Giày Sneaker nam nữ năng động thời trang hot trend</h2>
+                            <span class="variant-pill">Phân loại: Trắng Xám, Size 41 ▾</span>
+                        </div>
+                        <div class="product-bottom">
+                            <div class="price-group">
+                                <span class="price-now">450.000đ</span>
+                                <span class="price-old">600.000đ</span>
+                            </div>
+                            <div class="qty-stepper">
+                                <button type="button" class="btn-qty minus" aria-label="Giảm">−</button>
+                                <input type="text" class="qty-input" value="1" readonly>
+                                <button type="button" class="btn-qty plus" aria-label="Tăng">+</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- KHU VỰC CẢI TIẾN: Cảnh báo & Tách riêng sản phẩm hết hàng -->
-            <div class="out-of-stock-section">
+            <!-- Khu vực sản phẩm hết hàng -->
+            <div class="oos-card" id="oos-section">
                 <div class="oos-header">
-                    <div class="oos-title-wrap">
-                        <span class="oos-warning-icon">⚠️</span>
-                        <h3>Sản phẩm đã hết hàng hoặc ngưng kinh doanh (1)</h3>
+                    <div class="oos-heading">
+                        <span class="oos-dot"></span>
+                        <h3>Sản phẩm không khả dụng (1)</h3>
                     </div>
-                    <button type="button" class="btn-clear-oos">Xóa tất cả</button>
+                    <button type="button" class="btn-clear-oos" id="btn-clear-oos">Xóa tất cả</button>
                 </div>
-                <div class="cart-item oos-item">
-                    <input type="checkbox" disabled>
-                    <img src="images/tai-nghe.jpg" alt="Tai nghe Bluetooth" class="item-img oos-img">
-                    <div class="item-info">
-                        <p class="item-title">Tai nghe Bluetooth Gaming không dây thế hệ cũ</p>
-                        <span class="item-status-text">Sản phẩm hiện không khả dụng tại khu vực của bạn</span>
+
+                <div class="product-row oos-row">
+                    <div class="row-check">
+                        <span class="oos-badge">Hết hàng</span>
                     </div>
-                    <div class="item-price">
-                        <span class="current-price oos-price">199.000đ</span>
+                    <img src="images/tai-nghe.jpg" alt="Tai nghe Bluetooth" class="product-thumb">
+                    <div class="product-body">
+                        <div class="product-top">
+                            <h2 class="product-name">Tai nghe Bluetooth Gaming không dây thế hệ cũ</h2>
+                            <span class="oos-reason">Sản phẩm hiện không khả dụng tại khu vực của bạn</span>
+                        </div>
+                        <div class="product-bottom">
+                            <span class="oos-price">199.000đ</span>
+                            <button type="button" class="btn-similar">Tìm tương tự</button>
+                        </div>
                     </div>
-                    <button type="button" class="btn-find-similar">Tìm sản phẩm tương tự</button>
                 </div>
             </div>
 
-        </div>
+        </section>
 
-        <!-- Cột bên phải: KHU VỰC TÓM TẮT ĐƠN HÀNG CẢI TIẾN -->
-        <div class="cart-summary-section">
+        <!-- CỘT PHẢI: TÓM TẮT ĐƠN HÀNG -->
+        <aside class="cart-right">
             <div class="summary-card">
-                <h3>Tóm tắt đơn hàng</h3>
-                
-                <div class="summary-row">
-                    <span>Tổng tiền hàng:</span>
-                    <span>700.000đ</span>
-                </div>
-                <div class="summary-row">
-                    <span>Phí vận chuyển dự kiến:</span>
-                    <span>30.000đ</span>
-                </div>
-                <div class="summary-row discount-row">
-                    <span>Giảm giá Voucher (Freeship):</span>
-                    <span>-30.000đ</span>
-                </div>
-                <div class="summary-row discount-row">
-                    <span>Giảm giá Shopee Xu:</span>
-                    <span>-20.000đ</span>
+                <h3 class="summary-heading">Tóm tắt đơn hàng</h3>
+
+                <div class="summary-list">
+                    <div class="summary-line">
+                        <span>Tạm tính (<span id="summary-qty">2</span> sản phẩm)</span>
+                        <span id="subtotal-price">700.000đ</span>
+                    </div>
+                    <div class="summary-line">
+                        <span>Phí vận chuyển dự kiến</span>
+                        <span>30.000đ</span>
+                    </div>
+                    <div class="summary-line is-discount">
+                        <span>Voucher Freeship</span>
+                        <span>−30.000đ</span>
+                    </div>
+                    <div class="summary-line is-discount">
+                        <span>Shopee Xu đã dùng</span>
+                        <span>−20.000đ</span>
+                    </div>
                 </div>
 
-                <hr class="summary-divider">
+                <div class="summary-divider"></div>
 
-                <div class="summary-row total-row">
-                    <span>Tổng thanh toán:</span>
-                    <span class="final-price">680.000đ</span>
-                </div>
-                <div class="saving-notification">
-                    🎉 Bạn đã tiết kiệm được <strong>50.000đ</strong> cho đơn hàng này!
+                <div class="summary-total">
+                    <div>
+                        <span class="total-title">Tổng thanh toán</span>
+                        <span class="vat-note">(Đã bao gồm VAT nếu có)</span>
+                    </div>
+                    <span class="total-value" id="final-price">680.000đ</span>
                 </div>
 
-                <button type="button" class="btn-checkout">MUA HÀNG (2 SẢN PHẨM)</button>
+                <div class="saving-box">
+                    🎉 Tiết kiệm được <strong id="saving-amount">250.000đ</strong> so với giá gốc
+                </div>
+
+                <button type="button" class="btn-checkout" id="btn-checkout">
+                    MUA HÀNG (<span id="btn-qty">2</span>)
+                </button>
             </div>
-        </div>
+        </aside>
 
     </main>
 
+    <!-- THANH THANH TOÁN CỐ ĐỊNH DƯỚI ĐÁY TRÊN MOBILE -->
+    <div class="mobile-checkout-bar">
+        <div class="mobile-total-info">
+            <span class="mobile-total-label">Tổng thanh toán:</span>
+            <span class="mobile-total-price" id="mobile-final-price">680.000đ</span>
+        </div>
+        <button type="button" class="btn-mobile-checkout">
+            Mua hàng (<span id="mobile-btn-qty">2</span>)
+        </button>
+    </div>
+
+    <!-- Script tính tiền & tương tác mượt mà -->
+    <script>
+        const formatVND = (num) => num.toLocaleString('vi-VN') + 'đ';
+
+        function updateCart() {
+            const rows = document.querySelectorAll('.shop-card .product-row');
+            let totalQty = 0;
+            let subtotal = 0;
+            let totalOld = 0;
+
+            rows.forEach(row => {
+                const checked = row.querySelector('.item-check').checked;
+                const qty = parseInt(row.querySelector('.qty-input').value, 10);
+                const price = parseInt(row.dataset.price, 10);
+                const oldPrice = parseInt(row.dataset.oldPrice, 10);
+
+                if (checked) {
+                    totalQty += qty;
+                    subtotal += price * qty;
+                    totalOld += oldPrice * qty;
+                }
+            });
+
+            const voucher = totalQty > 0 ? 50000 : 0; // 30k freeship + 20k xu
+            const shipping = totalQty > 0 ? 30000 : 0;
+            const finalTotal = Math.max(0, subtotal + shipping - voucher);
+            const totalSaved = Math.max(0, (totalOld - subtotal) + (totalQty > 0 ? 50000 : 0));
+
+            document.getElementById('header-count').textContent = `(${totalQty})`;
+            document.getElementById('summary-qty').textContent = totalQty;
+            document.getElementById('subtotal-price').textContent = formatVND(subtotal);
+            document.getElementById('final-price').textContent = formatVND(finalTotal);
+            document.getElementById('mobile-final-price').textContent = formatVND(finalTotal);
+            document.getElementById('saving-amount').textContent = formatVND(totalSaved);
+            document.getElementById('btn-qty').textContent = totalQty;
+            document.getElementById('mobile-btn-qty').textContent = totalQty;
+        }
+
+        document.querySelectorAll('.qty-stepper').forEach(stepper => {
+            const input = stepper.querySelector('.qty-input');
+            stepper.querySelector('.minus').addEventListener('click', () => {
+                let val = parseInt(input.value, 10);
+                if (val > 1) { input.value = val - 1; updateCart(); }
+            });
+            stepper.querySelector('.plus').addEventListener('click', () => {
+                let val = parseInt(input.value, 10);
+                input.value = val + 1; updateCart();
+            });
+        });
+
+        const checkAll = document.getElementById('check-all');
+        const checkShop = document.getElementById('check-shop');
+        const itemChecks = document.querySelectorAll('.item-check');
+
+        checkAll.addEventListener('change', (e) => {
+            checkShop.checked = e.target.checked;
+            itemChecks.forEach(c => c.checked = e.target.checked);
+            updateCart();
+        });
+
+        checkShop.addEventListener('change', (e) => {
+            checkAll.checked = e.target.checked;
+            itemChecks.forEach(c => c.checked = e.target.checked);
+            updateCart();
+        });
+
+        itemChecks.forEach(c => {
+            c.addEventListener('change', () => {
+                const allChecked = Array.from(itemChecks).every(i => i.checked);
+                checkAll.checked = allChecked;
+                checkShop.checked = allChecked;
+                updateCart();
+            });
+        });
+
+        document.getElementById('btn-clear-oos').addEventListener('click', () => {
+            const oos = document.getElementById('oos-section');
+            oos.style.display = 'none';
+        });
+    </script>
 </body>
 </html>
