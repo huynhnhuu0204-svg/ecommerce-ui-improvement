@@ -4,14 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cải tiến Giỏ hàng - Shopee Mockup</title>
+    <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
+    <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
+    <link href="[https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap](https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap)" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <!-- Header trang giỏ hàng -->
     <header class="cart-header">
-        <div class="container">
-            <h1>🛒 Giỏ Hàng Của Tôi (Cải tiến giao diện Tóm tắt)</h1>
+        <div class="container header-inner">
+            <div class="header-title-group">
+                <h1>🛒 Giỏ Hàng Của Tôi</h1>
+                <span class="header-subtitle">Cải tiến giao diện Tóm tắt</span>
+            </div>
+            <span class="header-promo-tag">✨ Miễn phí vận chuyển cho đơn từ 300.000đ</span>
         </div>
     </header>
 
@@ -26,14 +33,13 @@
                 <div class="shop-header">
                     <input type="checkbox" checked>
                     <span class="shop-name">Official Store VN</span>
-                    <span class="shop-badge">Mall</span>
+                    <span class="shop-badge">MALL</span>
                 </div>
                 
                 <!-- Sản phẩm 1 -->
                 <div class="cart-item">
                     <input type="checkbox" checked>
-                    <img src="images/ao-khoac.jpg" alt="Áo khoác gió thể thao">
-```[cite: 6]
+                    <img src="images/ao-khoac.jpg" alt="Áo khoác gió thể thao" class="item-img">
                     <div class="item-info">
                         <p class="item-title">Áo khoác gió thể thao nam cao cấp chống nước kháng bụi</p>
                         <span class="item-classification">Phân loại: Đen, Size L</span>
@@ -43,17 +49,16 @@
                         <span class="current-price">250.000đ</span>
                     </div>
                     <div class="item-quantity">
-                        <button>-</button>
+                        <button type="button">−</button>
                         <input type="text" value="1" readonly>
-                        <button>+</button>
+                        <button type="button">+</button>
                     </div>
                 </div>
 
                 <!-- Sản phẩm 2 -->
                 <div class="cart-item">
                     <input type="checkbox" checked>
-                    <img src="images/giay-sneaker.jpg" alt="Giày Sneaker">
-```[cite: 6]
+                    <img src="images/giay-sneaker.jpg" alt="Giày Sneaker" class="item-img">
                     <div class="item-info">
                         <p class="item-title">Giày Sneaker nam nữ năng động thời trang hot trend</p>
                         <span class="item-classification">Phân loại: Trắng Xám, Size 41</span>
@@ -63,9 +68,9 @@
                         <span class="current-price">450.000đ</span>
                     </div>
                     <div class="item-quantity">
-                        <button>-</button>
+                        <button type="button">−</button>
                         <input type="text" value="1" readonly>
-                        <button>+</button>
+                        <button type="button">+</button>
                     </div>
                 </div>
             </div>
@@ -73,21 +78,23 @@
             <!-- KHU VỰC CẢI TIẾN: Cảnh báo & Tách riêng sản phẩm hết hàng -->
             <div class="out-of-stock-section">
                 <div class="oos-header">
-                    <span class="oos-warning-icon">⚠️</span>
-                    <h3>Sản phẩm đã hết hàng hoặc ngưng kinh doanh (1)</h3>
-                    <button class="btn-clear-oos">Xóa tất cả</button>
+                    <div class="oos-title-wrap">
+                        <span class="oos-warning-icon">⚠️</span>
+                        <h3>Sản phẩm đã hết hàng hoặc ngưng kinh doanh (1)</h3>
+                    </div>
+                    <button type="button" class="btn-clear-oos">Xóa tất cả</button>
                 </div>
                 <div class="cart-item oos-item">
                     <input type="checkbox" disabled>
-                    <img src="images/tai-nghe.jpg" alt="Tai nghe Bluetooth">
+                    <img src="images/tai-nghe.jpg" alt="Tai nghe Bluetooth" class="item-img oos-img">
                     <div class="item-info">
-                        <p class="item-title" style="color: #888;">Tai nghe Bluetooth Gaming không dây thế hệ cũ</p>
+                        <p class="item-title">Tai nghe Bluetooth Gaming không dây thế hệ cũ</p>
                         <span class="item-status-text">Sản phẩm hiện không khả dụng tại khu vực của bạn</span>
                     </div>
                     <div class="item-price">
-                        <span class="current-price" style="color: #888;">199.000đ</span>
+                        <span class="current-price oos-price">199.000đ</span>
                     </div>
-                    <button class="btn-find-similar">Tìm sản phẩm tương tự</button>
+                    <button type="button" class="btn-find-similar">Tìm sản phẩm tương tự</button>
                 </div>
             </div>
 
@@ -125,7 +132,7 @@
                     🎉 Bạn đã tiết kiệm được <strong>50.000đ</strong> cho đơn hàng này!
                 </div>
 
-                <button class="btn-checkout">Mua Hàng (2 sản phẩm)</button>
+                <button type="button" class="btn-checkout">MUA HÀNG (2 SẢN PHẨM)</button>
             </div>
         </div>
 
