@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cải tiến Giỏ hàng - Shopee Mockup</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header trang giỏ hàng -->
+    <header class="cart-header">
+        <div class="container">
+            <h1>🛒 Giỏ Hàng Của Tôi (Cải tiến giao diện Tóm tắt)</h1>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="cart-container container">
+        
+        <!-- Cột bên trái: Danh sách sản phẩm và cảnh báo hàng hết -->
+        <div class="cart-main-content">
+            
+            <!-- Nhóm Shop 1 -->
+            <div class="shop-group">
+                <div class="shop-header">
+                    <input type="checkbox" checked>
+                    <span class="shop-name">Official Store VN</span>
+                    <span class="shop-badge">Mall</span>
+                </div>
+                
+                <!-- Sản phẩm 1 -->
+                <div class="cart-item">
+                    <input type="checkbox" checked>
+                    <img src="images/ao-khoac.jpg" alt="Áo khoác gió thể thao">
+```[cite: 6]
+                    <div class="item-info">
+                        <p class="item-title">Áo khoác gió thể thao nam cao cấp chống nước kháng bụi</p>
+                        <span class="item-classification">Phân loại: Đen, Size L</span>
+                    </div>
+                    <div class="item-price">
+                        <span class="old-price">350.000đ</span>
+                        <span class="current-price">250.000đ</span>
+                    </div>
+                    <div class="item-quantity">
+                        <button>-</button>
+                        <input type="text" value="1" readonly>
+                        <button>+</button>
+                    </div>
+                </div>
+
+                <!-- Sản phẩm 2 -->
+                <div class="cart-item">
+                    <input type="checkbox" checked>
+                    <img src="images/giay-sneaker.jpg" alt="Giày Sneaker">
+```[cite: 6]
+                    <div class="item-info">
+                        <p class="item-title">Giày Sneaker nam nữ năng động thời trang hot trend</p>
+                        <span class="item-classification">Phân loại: Trắng Xám, Size 41</span>
+                    </div>
+                    <div class="item-price">
+                        <span class="old-price">600.000đ</span>
+                        <span class="current-price">450.000đ</span>
+                    </div>
+                    <div class="item-quantity">
+                        <button>-</button>
+                        <input type="text" value="1" readonly>
+                        <button>+</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KHU VỰC CẢI TIẾN: Cảnh báo & Tách riêng sản phẩm hết hàng -->
+            <div class="out-of-stock-section">
+                <div class="oos-header">
+                    <span class="oos-warning-icon">⚠️</span>
+                    <h3>Sản phẩm đã hết hàng hoặc ngưng kinh doanh (1)</h3>
+                    <button class="btn-clear-oos">Xóa tất cả</button>
+                </div>
+                <div class="cart-item oos-item">
+                    <input type="checkbox" disabled>
+                    <img src="images/tai-nghe.jpg" alt="Tai nghe Bluetooth">
+                    <div class="item-info">
+                        <p class="item-title" style="color: #888;">Tai nghe Bluetooth Gaming không dây thế hệ cũ</p>
+                        <span class="item-status-text">Sản phẩm hiện không khả dụng tại khu vực của bạn</span>
+                    </div>
+                    <div class="item-price">
+                        <span class="current-price" style="color: #888;">199.000đ</span>
+                    </div>
+                    <button class="btn-find-similar">Tìm sản phẩm tương tự</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Cột bên phải: KHU VỰC TÓM TẮT ĐƠN HÀNG CẢI TIẾN -->
+        <div class="cart-summary-section">
+            <div class="summary-card">
+                <h3>Tóm tắt đơn hàng</h3>
+                
+                <div class="summary-row">
+                    <span>Tổng tiền hàng:</span>
+                    <span>700.000đ</span>
+                </div>
+                <div class="summary-row">
+                    <span>Phí vận chuyển dự kiến:</span>
+                    <span>30.000đ</span>
+                </div>
+                <div class="summary-row discount-row">
+                    <span>Giảm giá Voucher (Freeship):</span>
+                    <span>-30.000đ</span>
+                </div>
+                <div class="summary-row discount-row">
+                    <span>Giảm giá Shopee Xu:</span>
+                    <span>-20.000đ</span>
+                </div>
+
+                <hr class="summary-divider">
+
+                <div class="summary-row total-row">
+                    <span>Tổng thanh toán:</span>
+                    <span class="final-price">680.000đ</span>
+                </div>
+                <div class="saving-notification">
+                    🎉 Bạn đã tiết kiệm được <strong>50.000đ</strong> cho đơn hàng này!
+                </div>
+
+                <button class="btn-checkout">Mua Hàng (2 sản phẩm)</button>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+</html>
